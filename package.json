@@ -1,0 +1,12 @@
+{
+  "name": "paper-access-router",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small browser extension that routes paper DOIs through legal library-access paths.",
+  "scripts": {
+    "check": "node --check src/background.js && node --check src/doi.js && node --check src/popup.js",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

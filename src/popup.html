@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paper Access Router</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">LEGAL FULL-TEXT ROUTER</p>
+        <h1>Paper Access</h1>
+        <p class="intro">Use your library subscription or an open-access copy without storing credentials.</p>
+      </header>
+
+      <section class="session-card" aria-labelledby="uoft-session-title">
+        <div>
+          <h2 id="uoft-session-title">University of Toronto</h2>
+          <p>Start one OpenAthens session, then reuse it while fetching papers.</p>
+        </div>
+        <button id="start-session" class="secondary" type="button">Start 8-hour session</button>
+      </section>
+
+      <form id="doi-form">
+        <label for="doi-input">DOI</label>
+        <input
+          id="doi-input"
+          name="doi"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="10.1287/mnsc.2025.00819"
+        >
+        <p id="status" role="status">Looking for a DOI on this page…</p>
+        <button id="open-paper" class="primary" type="submit">Open through LibKey</button>
+      </form>
+
+      <footer>
+        <p>First use: choose your institution in LibKey. Duo remains controlled by U of T.</p>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

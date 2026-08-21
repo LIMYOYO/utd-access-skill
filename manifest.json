@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Paper Access Router",
+  "version": "0.1.0",
+  "description": "Route article DOIs to legal full text through LibKey and University of Toronto library access.",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Open paper legally"
+  }
+}
