@@ -8,6 +8,13 @@ INFORMS moved institutional online access to EBSCO Business Source packages in 2
 
 This extension keeps that routing in one place. Authentication remains between the user, their institution, and the content provider.
 
+Official references:
+
+- [INFORMS 2026 institutional-access changes](https://www.informs.org/Publications/Journal-Subscriptions)
+- [Rotman Milt Harris Library databases](https://rotman.utoronto.ca/faculty-and-research/milt-harris-library/)
+- [U of T LibKey Nomad guidance](https://library.utoronto.ca/use/tool/libkey-nomad)
+- [U of T OpenAthens guidance and session limits](https://library.utoronto.ca/news/updated-university-toronto-libraries-revamps-e-resource-access-openathens)
+
 ## What it does
 
 - detects a DOI from common article-page metadata and `doi.org` links;
