@@ -1,0 +1,39 @@
+{
+  "checked_local_date": "2026-09-25/26",
+  "timezone": "America/Toronto",
+  "assembled_utc": "2026-09-26T04:01:30.300475+00:00",
+  "notes": [
+    "Product title-list data is not an institutional entitlement or article download guarantee.",
+    "Lists warn that intended coverage may differ from the product and can change without notice.",
+    "Identity metadata may contain historical publisher/host names.",
+    "No date of publication was exposed for the downloaded title lists."
+  ],
+  "sources": [
+    {
+      "product": "Premier",
+      "url": "https://about.ebsco.com/m/ee/Marketing/titleLists/buh-journals.htm",
+      "http_status": 200,
+      "sha256": "6ceeb6bc1ec6d1cd8cf7bf59aaf4d3a6620819e42a2770023a85e88911999230",
+      "bytes": 3570909,
+      "data_rows": 8218
+    },
+    {
+      "product": "Complete",
+      "url": "https://about.ebsco.com/m/ee/Marketing/titleLists/bth-journals.htm",
+      "http_status": 200,
+      "sha256": "8f716934b0946dbcc4f2a33342faa0cc710b3f975fc8449a216926134537ca7e",
+      "bytes": 3597025,
+      "data_rows": 8218
+    },
+    {
+      "product": "Ultimate",
+      "url": "https://about.ebsco.com/m/ee/Marketing/titleLists/bsu-journals.htm",
+      "http_status": 200,
+      "sha256": "f25e039c668d6e73c039cd628395896e7f3096f49991c8b618fa50bef75e84ea",
+      "bytes": 3640056,
+      "data_rows": 8229
+    }
+  ],
+  "journal_count": 155,
+  "ebsco_matched_row_count": 408
+}

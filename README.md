@@ -1,79 +1,71 @@
-# Paper Access Router
+# Paper Access
 
-A small, dependency-free browser extension that turns a DOI into the best legal route to full text. It is optimized for University of Toronto users while remaining useful to researchers at other LibKey institutions.
+Paper Access 是一个供 Codex 调用的本地论文获取工具。它把 Python CLI、Chrome 扩展、本机 Native Messaging bridge 和 `paper-access` skill 放在同一个仓库里。
 
-## Why this exists
+当前版本：Python/skill `0.6.0.dev1`，Chrome 扩展 `0.6.0`。
 
-INFORMS moved institutional online access to EBSCO Business Source packages in 2026. University of Toronto subscribes to Business Source Premier, but researchers may begin from a DOI, Google Scholar, an email, or the INFORMS publisher page. The result is a fragmented route involving LibKey, OpenAthens, EBSCO, and sometimes open-access copies.
+这是面向 macOS + Chrome 的实验性开源预览。INFORMS 自动下载适配当前固定为 University of Toronto；其他学校可使用手工 LibKey 路由，尚未提供对应自动适配。SSRN 自动入口当前支持单篇。
 
-This extension keeps that routing in one place. Authentication remains between the user, their institution, and the content provider.
+## 现在能做什么
 
-Official references:
+- 在文献调查、相关性判断和模型比较中自然触发，不要求用户记住 skill 名称。
+- 通过已登录 Chrome 获取单篇 SSRN 正文。
+- 通过 LibKey Nomad、University of Toronto 和 EBSCO 获取 INFORMS 正文。
+- INFORMS 一次提交最多 10 篇，并将单篇失败与其他任务隔离。
+- 将“PDF 已完整下载”和“论文身份已核验”分开报告；默认允许阅读已下载但身份待核对的正文。
+- 对开放来源执行 DOI/BibTeX/RIS/CSV 规划、下载、缓存、恢复和报告。
 
-- [INFORMS 2026 institutional-access changes](https://www.informs.org/Publications/Journal-Subscriptions)
-- [Rotman Milt Harris Library databases](https://rotman.utoronto.ca/faculty-and-research/milt-harris-library/)
-- [U of T LibKey Nomad guidance](https://library.utoronto.ca/use/tool/libkey-nomad)
-- [U of T OpenAthens guidance and session limits](https://library.utoronto.ca/news/updated-university-toronto-libraries-revamps-e-resource-access-openathens)
+本工具使用用户已有的合法访问资格，不保存学校密码、MFA、Chrome cookie，也不绕过登录、人机验证、订阅或下载限制。
 
-## What it does
+## 仓库结构
 
-- detects a DOI from common article-page metadata and `doi.org` links;
-- accepts pasted DOI strings or DOI URLs;
-- opens the article through LibKey, which can check institutional holdings and open-access alternatives;
-- provides a University of Toronto button to begin an OpenAthens/EBSCO Business Source Premier session;
-- adds a right-click action for selected DOIs and DOI links.
+| 路径 | 用途 |
+| --- | --- |
+| `python/paper_access/` | Python CLI、任务数据库、来源适配、校验和 native bridge |
+| `src/`、`manifest.json` | 可由 Chrome **Load unpacked** 加载的扩展 |
+| `skills/paper-access/` | 与本版本配套的 Codex skill |
+| `profiles/providers/capabilities.json` | 来源能力边界 |
+| `tests/` | Python 与扩展自动化测试 |
+| `docs/` | 设计、访问调查和测试证据 |
 
-## What it does not do
+## 安装
 
-- bypass Duo or any other MFA;
-- store institutional credentials or authentication cookies;
-- scrape publisher sites or perform bulk downloads;
-- redistribute PDFs;
-- guarantee access when a library does not license an article.
+从[简明安装指南](INSTALL.zh-CN.md)开始；详细命令、授权、升级和排错见[Codex 安装执行指南](skills/paper-access/references/installation.md)。可把本仓库链接交给 Codex，再复制：
 
-## Install locally
+> 帮我安装这个仓库的 Paper Access。先读 INSTALL.zh-CN.md 和 skills/paper-access/references/installation.md，完成安装并实际下载一篇论文验收；需要 Chrome 权限或本人认证时提示我操作。
 
-1. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
-2. Enable **Developer mode**.
-3. Select **Load unpacked**.
-4. Choose this repository directory.
-5. Pin **Paper Access Router** to the toolbar.
+## 日常使用
 
-## University of Toronto workflow
+安装完成后无需显式说“使用 paper-access”。下面这些请求会在需要正文时自然调用：
 
-1. At the start of a research session, select **Start 8-hour session** and complete UTORid/Duo authentication.
-2. If Duo offers **Yes, this is my device**, use it only on your personal device; U of T may remember the MFA session for 24 hours.
-3. Open an article page or paste its DOI into the extension.
-4. Select **Open through LibKey**. The first time, choose **University of Toronto** in LibKey.
-5. Use the PDF or full-text option that LibKey provides.
+- “调查 Mobile AED 领域，确认哪些论文真的相关。”
+- “这篇文章和我的模型到底哪里相似？”
+- “找最近的 M&SOM、Management Science 和 SSRN 文章，摘要不够时读正文。”
+- “下载 DOI 10.1287/mnsc.2018.3061。”
 
-See [manual test cases](docs/test-cases.md) for current INFORMS examples.
+用户明确只要摘要、书目信息或链接时，不会为了凑数量自动下载论文。
 
-## 中文快速说明
+## 开发验证
 
-每天开始查论文时，先点击 **Start 8-hour session**，用 UTORid 和 Duo 建立 U of T 的 OpenAthens 会话。之后打开论文页面，扩展会尝试识别 DOI；也可以直接粘贴 DOI，再通过 LibKey 查找 U of T 已订阅全文或合法开放版本。
-
-本项目不会保存账号、密码、Duo 信息或 PDF，也不会绕过学校和出版社权限。
-
-## Test
-
-Requires a current Node.js release with the built-in test runner.
+开发测试另需 Node.js/npm；日常安装与下载不需要。
 
 ```sh
+uv sync --dev
+uv run pytest
 npm test
 ```
 
-Manual authentication and full-text routing must be tested in a browser by an authorized user. Automated tests intentionally stop before institutional login.
+构建 wheel 并核对 skill 版本：
 
-## Sharing and contribution
+```sh
+uv build --wheel
+uv run paper-access doctor --json
+```
 
-The code is intentionally small enough to audit. Before publishing it in a public repository:
+真实浏览器验收需要 Chrome、正确的扩展 ID、用户自己的学校访问资格，以及本人完成登录/MFA。自动化测试不替代真实来源验收。四项真实 PDF 回放测试需要使用者自行提供合法获得的固定样本，并通过 `PAPER_ACCESS_ACCEPTANCE_DIR` 指定目录；默认跳过，仓库不附带论文全文。
 
-- run the automated and manual tests;
-- capture no screenshots containing names, UTORids, email addresses, or library-account information;
-- keep downloads user-initiated and article-by-article;
-- document institution-specific routes rather than hard-coding credentials.
+## 已验证边界
 
-## License
+本机 macOS + Chrome 已验证 INFORMS 单篇、十篇并发与失败隔离，以及 SSRN 单篇流程。其他电脑需按安装文档各做一篇真实验收。支持某个入口不表示每篇论文都有订阅，也不表示身份校验必然通过。
 
-MIT. See [LICENSE](LICENSE).
+许可证：[MIT](LICENSE)。隐私说明：[PRIVACY.md](PRIVACY.md)。

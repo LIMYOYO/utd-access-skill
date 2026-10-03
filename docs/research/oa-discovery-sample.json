@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "count": 162,
+    "db_response_time_ms": 27,
+    "page": 1,
+    "per_page": 3,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where PDF-linked is (true) and ISSN is (1523-4614)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "has_content.pdf",
+            "value": true
+          },
+          {
+            "column_id": "primary_location.source.issn",
+            "value": "1523-4614"
+          }
+        ]
+      },
+      "url": "/works?filter=has_content.pdf:true,primary_location.source.issn:1523-4614&per_page=3"
+    },
+    "cost_usd": 0.0001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W2119338125",
+      "doi": "https://doi.org/10.1287/msom.5.2.79.16071",
+      "title": "Telephone Call Centers: Tutorial, Review, and Research Prospects",
+      "publication_year": 2003,
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://repository.upenn.edu/bitstreams/5349c200-b621-4b21-a4ca-45a65cb11112/download",
+        "any_repository_has_fulltext": true
+      },
+      "best_oa_location": {
+        "id": "pmh:oai:repository.upenn.edu:oid_papers-1172",
+        "is_oa": true,
+        "landing_page_url": "https://repository.upenn.edu/oid_papers/136",
+        "pdf_url": "https://repository.upenn.edu/bitstreams/5349c200-b621-4b21-a4ca-45a65cb11112/download",
+        "source": {
+          "id": "https://openalex.org/S4306402083",
+          "display_name": "ScholarlyCommons (University of Pennsylvania)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "listed_in": [],
+          "host_organization": "https://openalex.org/I79576946",
+          "host_organization_name": "University of Pennsylvania",
+          "host_organization_lineage": [
+            "https://openalex.org/I79576946"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "Operations, Information and Decisions Papers",
+        "raw_type": "text"
+      },
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W2119338125.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W2119338125.grobid-xml"
+      }
+    },
+    {
+      "id": "https://openalex.org/W2486612223",
+      "doi": "https://doi.org/10.1287/msom.2016.0593",
+      "title": "Online and Offline Information for Omnichannel Retailing",
+      "publication_year": 2016,
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://repository.upenn.edu/bitstreams/63f9c72c-0bc7-45a4-9057-3ca026255805/download",
+        "any_repository_has_fulltext": true
+      },
+      "best_oa_location": {
+        "id": "pmh:oai:repository.upenn.edu:fnce_papers-1312",
+        "is_oa": true,
+        "landing_page_url": "https://repository.upenn.edu/cgi/viewcontent.cgi?article=1312&amp;amp;context=fnce_papers",
+        "pdf_url": "https://repository.upenn.edu/bitstreams/63f9c72c-0bc7-45a4-9057-3ca026255805/download",
+        "source": {
+          "id": "https://openalex.org/S4306402083",
+          "display_name": "ScholarlyCommons (University of Pennsylvania)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "listed_in": [],
+          "host_organization": "https://openalex.org/I79576946",
+          "host_organization_name": "University of Pennsylvania",
+          "host_organization_lineage": [
+            "https://openalex.org/I79576946"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "Finance Papers",
+        "raw_type": "text"
+      },
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W2486612223.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W2486612223.grobid-xml"
+      }
+    },
+    {
+      "id": "https://openalex.org/W2590885950",
+      "doi": "https://doi.org/10.1287/msom.2016.0607",
+      "title": "Information Sharing in Competing Supply Chains with Production Cost Reduction",
+      "publication_year": 2017,
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://repository.hkust.edu.hk/ir/bitstream/1783.1-85300/1/85300.pdf",
+        "any_repository_has_fulltext": true
+      },
+      "best_oa_location": {
+        "id": "pmh:oai:repository.hkust.edu.hk:1783.1-85300",
+        "is_oa": true,
+        "landing_page_url": "https://repository.hkust.edu.hk/ir/Record/1783.1-85300",
+        "pdf_url": "https://repository.hkust.edu.hk/ir/bitstream/1783.1-85300/1/85300.pdf",
+        "source": {
+          "id": "https://openalex.org/S4306401796",
+          "display_name": "Rare & Special e-Zone (The Hong Kong University of Science and Technology)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "listed_in": [],
+          "host_organization": "https://openalex.org/I200769079",
+          "host_organization_name": "Hong Kong University of Science and Technology",
+          "host_organization_lineage": [
+            "https://openalex.org/I200769079"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "Article"
+      },
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W2590885950.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W2590885950.grobid-xml"
+      }
+    }
+  ],
+  "group_by": []
+}

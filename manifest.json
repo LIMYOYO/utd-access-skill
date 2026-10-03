@@ -1,12 +1,22 @@
 {
   "manifest_version": 3,
   "name": "Paper Access Router",
-  "version": "0.1.0",
+  "version": "0.6.0",
+  "version_name": "0.6.0 download and identity gates",
   "description": "Route article DOIs to legal full text through LibKey and University of Toronto library access.",
   "permissions": [
     "activeTab",
     "contextMenus",
-    "scripting"
+    "scripting",
+    "downloads",
+    "storage",
+    "alarms",
+    "nativeMessaging"
+  ],
+  "optional_host_permissions": [
+    "https://pubsonline.informs.org/*",
+    "https://research.ebsco.com/*",
+    "https://papers.ssrn.com/*"
   ],
   "background": {
     "service_worker": "src/background.js",

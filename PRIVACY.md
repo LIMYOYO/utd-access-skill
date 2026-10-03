@@ -1,12 +1,16 @@
 # Privacy
 
-Paper Access Router has no backend, analytics, advertising, or account system.
+Paper Access has no project-operated backend, analytics, advertising, or account system. Browser and PDF processing occurs on the user's computer.
 
-The extension:
+The Chrome extension can:
 
-- reads the active page only after the user opens the extension, solely to detect a DOI;
-- opens user-requested links to LibKey, University of Toronto OpenAthens, EBSCO, or DOI destinations;
-- does not inspect or store browser cookies, passwords, UTORid credentials, Duo responses, PDFs, or article text;
-- does not transmit data to the project author.
+- read DOI, title, author and normal download-link metadata on sites for which the user grants access;
+- open background tabs and initiate user-authorized downloads;
+- observe Chrome download records needed to bind a completed file to its request;
+- exchange request state and local file paths with the registered Paper Access native host.
 
-LibKey, OpenAthens, EBSCO, publishers, and institutions operate under their own privacy policies. Users should review those policies before use.
+The local CLI and native host can copy, hash, parse, validate and extract text from downloaded papers, and store task state and reports in the user's local Paper Access data and output directories.
+
+The system does not read or export browser cookies, passwords, institutional credentials, MFA responses or session tokens. It does not transmit papers or credentials to the project author. Metadata and files may be sent only to sources the user enables for acquisition, such as Crossref, OpenAlex, Unpaywall, LibKey, EBSCO, SSRN, publishers or institutional repositories; those services operate under their own policies and access terms.
+
+Uninstalling the native bridge removes its Chrome registration but deliberately preserves downloaded papers, task databases and runtime files. The user controls later deletion of those local files.

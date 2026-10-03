@@ -1,0 +1,67 @@
+[
+  {
+    "label": "oa_repository_pdf",
+    "url": "https://repository.upenn.edu/bitstreams/5349c200-b621-4b21-a4ca-45a65cb11112/download",
+    "http_status": 200,
+    "final_url": "https://repository.upenn.edu/server/api/core/bitstreams/5349c200-b621-4b21-a4ca-45a65cb11112/content",
+    "content_type": "application/pdf;charset=UTF-8",
+    "bytes_read": 2230333,
+    "pdf_signature": true,
+    "sha256": "f072da286c0dae17d46d1e01b8f08ee01495753289d5817e6adc12e6fee9eec8",
+    "eof_found": true,
+    "elapsed_seconds": 12.0,
+    "checked_local_date": "2026-09-25/26",
+    "local_validation": {
+      "parser": "pdfinfo and pdftotext",
+      "page_count": 84,
+      "encrypted": false,
+      "first_page_title_match": true,
+      "first_page_authors_match": true,
+      "version": "repository manuscript; not verified Version of Record"
+    }
+  },
+  {
+    "label": "openalex_content_without_key",
+    "url": "https://content.openalex.org/works/W2119338125.pdf",
+    "http_status": 401,
+    "error_reason": "HTTP Error 401: Unauthorized",
+    "elapsed_seconds": 0.61,
+    "checked_local_date": "2026-09-25/26"
+  },
+  {
+    "label": "ssrn_landing",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4189586",
+    "http_status": 403,
+    "error_reason": "HTTP Error 403: Forbidden",
+    "elapsed_seconds": 0.55,
+    "checked_local_date": "2026-09-25/26"
+  },
+  {
+    "label": "libkey_landing",
+    "url": "https://libkey.io/10.1287/mnsc.2025.00819",
+    "http_status": 200,
+    "final_url": "https://libkey.io/10.1287/mnsc.2025.00819",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 5580,
+    "pdf_signature": false,
+    "elapsed_seconds": 0.49,
+    "checked_local_date": "2026-09-25/26"
+  },
+  {
+    "label": "informs_previously_claimed_oa",
+    "url": "https://pubsonline.informs.org/doi/pdf/10.1287/mnsc.2023.00320",
+    "http_status": 403,
+    "error_reason": "HTTP Error 403: Forbidden",
+    "elapsed_seconds": 0.27,
+    "checked_local_date": "2026-09-25/26"
+  },
+  {
+    "label": "aea_complimentary_pdf_web_probe",
+    "doi": "10.1257/jep.33.3.3",
+    "url": "https://www.aeaweb.org/articles/pdf/doi/10.1257/jep.33.3.3",
+    "http_status": 403,
+    "client": "web tool",
+    "notes": "Official article landing page displayed a complimentary PDF link; fetching that link failed. Not a local Python probe.",
+    "checked_local_date": "2026-09-25/26"
+  }
+]

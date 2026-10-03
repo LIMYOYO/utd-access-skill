@@ -1,0 +1,7 @@
+interface:
+  display_name: "Paper Access 论文获取"
+  short_description: "文献检索、相关性判断和模型比较需要正文时，自然获取、阅读并交付论文"
+  default_prompt: "使用 $paper-access 获取关键论文正文，阅读相关部分判断它与我的研究是否相关，并附论文及 PDF 链接。"
+
+policy:
+  allow_implicit_invocation: true

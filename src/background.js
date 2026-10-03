@@ -1,4 +1,19 @@
 import { buildLibKeyUrl, extractDoi } from "./doi.js";
+import { installDownloader } from './downloader.js';
+
+import { installPairDownloader } from './pair-downloader.js';
+import { installBatchDownloader } from './batch-downloader.js';
+import {installSsrnDownloader} from './ssrn-downloader.js';
+let pairController,batchController,ssrnController;
+const controller = installDownloader(chrome,{externalBusy:()=>pairController?.busy()||batchController?.busy()||ssrnController?.isBusy()||false});
+pairController=installPairDownloader(chrome,{singleBusy:()=>controller.isBusy()||batchController?.busy()||ssrnController?.isBusy()||false});
+batchController=installBatchDownloader(chrome,{externalBusy:()=>controller.isBusy()||pairController.busy()||ssrnController?.isBusy()});
+import { installNativeBridge } from './native-bridge.js';
+ssrnController=installSsrnDownloader(chrome,{externalBusy:()=>controller.isBusy()||pairController.busy()||batchController.busy()});
+const bridge = installNativeBridge(chrome, controller, {pairController,batchController,ssrnController});
+chrome.runtime.onMessage.addListener((message,sender) => {
+  if (message?.type === 'bridge-reconnect' && sender.id === chrome.runtime.id && !sender.tab && sender.url === chrome.runtime.getURL('src/popup.html')) bridge.reconnect();
+});
 
 const MENU_ID = "paper-access-router-open";
 

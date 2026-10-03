@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "paper-access"
+version = "0.6.0.dev1"
+description = "Resumable, source-aware local paper acquisition"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+dependencies = [
+    "beautifulsoup4>=4.13,<5",
+    "bibtexparser>=2.0.1,<3",
+    "defusedxml>=0.7,<1",
+    "httpx>=0.28,<1",
+    "pdfminer-six>=20260107",
+    "pypdf[fonts]>=6,<7",
+    "rispy>=0.10,<1",
+]
+
+[project.scripts]
+paper-access = "paper_access.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["python/paper_access"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/python/paper_access", "/skills/paper-access", "/profiles/providers",
+    "/src", "/tests", "/pyproject.toml", "/uv.lock",
+    "/manifest.json", "/package.json", "/README.md", "/INSTALL.zh-CN.md",
+    "/PRIVACY.md", "/LICENSE",
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"skills/paper-access" = "paper_access/skill"
+"profiles/providers/capabilities.json" = "paper_access/provider-capabilities.json"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]

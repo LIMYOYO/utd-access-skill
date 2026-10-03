@@ -148,3 +148,7 @@ footer {
 footer p {
   margin-bottom: 0;
 }
+
+#download-status { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+#stop-download { margin-top: 8px; }
+button:disabled { opacity: 0.55; cursor: default; }

@@ -1,5 +1,7 @@
 # Manual test cases
 
+本页保留早期手工路由检查。0.6.0 的完整安装验收、native bridge、SSRN 和批量检查以 [INSTALL.zh-CN.md](../INSTALL.zh-CN.md) 第 6–7 节为准；这里的浏览器路由仍可用于 bridge 不可用时的单篇降级检查。
+
 These checks deliberately use individual, user-initiated article requests. Do not use them for bulk downloading.
 
 ## 1. Establish a University of Toronto session
@@ -10,7 +12,7 @@ These checks deliberately use individual, user-initiated article requests. Do no
 4. If Duo offers **Yes, this is my device**, select it only on a personal device.
 5. Confirm that EBSCO Business Source Premier opens.
 
-Expected: OpenAthens remains usable for up to eight hours in the same browser session. The extension never sees the password, Duo response, cookies, or EBSCO content.
+Expected: OpenAthens remains usable for up to eight hours in the same browser session. The extension never receives the password, Duo response or cookies; when site permission is granted, it can read the article metadata and normal download controls required by the Paper Access workflow.
 
 ## 2. Current subscription-only INFORMS article
 
@@ -23,12 +25,12 @@ Expected: OpenAthens remains usable for up to eight hours in the same browser se
 
 Expected: LibKey checks U of T holdings and routes the request to the licensed full text, currently expected through EBSCO Business Source Premier.
 
-## 3. Open-access INFORMS article
+## 3. INFORMS article with unverified open-access status
 
 - DOI: `10.1287/mnsc.2023.00320`
-- Title: *Collaborative Learning and Decision Making on Pricing and Recommendation*
+- Title: *Collaborative Learning and Decision Making on Pricing and Recommendation: A Simple Framework for Planning*
 
-Expected: LibKey offers an open-access copy without requiring institutional authentication.
+Expected: LibKey resolves the article's currently available access options. Do not require an open-access result for this DOI: on September 25–26, 2026, OpenAlex reported it as closed with no cached full text, while a direct publisher PDF request returned HTTP 403. These observations do not definitively establish its access status, but do not support the previous claim that it is an OA test fixture. See the [access audit](research/2026-09-26-access-audit.md).
 
 ## 4. DOI detection
 

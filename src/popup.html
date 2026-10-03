@@ -36,7 +36,22 @@
         <button id="open-paper" class="primary" type="submit">Open through LibKey</button>
       </form>
 
+      <section class="session-card" aria-labelledby="download-title">
+        <h2 id="download-title">单篇后台下载 · 测试版</h2>
+        <p>使用上方 DOI。仅支持多大 → EBSCO；首次需允许读取和操作 INFORMS、EBSCO 页面。</p>
+        <button id="download-paper" type="button" class="primary">后台下载这一篇</button>
+        <button id="stop-download" type="button" class="secondary">暂停任务</button>
+        <button id="diagnose-download" type="button" class="secondary">检查本次下载记录</button>
+        <p id="download-status" role="status" aria-live="polite">尚未开始。</p>
+        <p id="pair-status" role="status"></p>
+        <p id="bridge-status" role="status">正在检查 Codex 本地连接…</p>
+        <button id="bridge-reconnect" type="button" class="secondary">重新连接 Codex</button>
+        <p id="download-diagnostics" role="status" aria-live="polite"></p>
+      </section>
+
       <footer>
+        <button id="enable-ssrn" type="button" class="secondary">启用 SSRN 网站权限</button>
+        <p id="ssrn-status" role="status" aria-live="polite">SSRN 由 Codex 提交任务；验证请求需人工完成。</p>
         <p>First use: choose your institution in LibKey. Duo remains controlled by U of T.</p>
       </footer>
     </main>
