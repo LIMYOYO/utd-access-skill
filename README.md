@@ -1,71 +1,110 @@
 # Paper Access
 
-Paper Access 是一个供 Codex 调用的本地论文获取工具。它把 Python CLI、Chrome 扩展、本机 Native Messaging bridge 和 `paper-access` skill 放在同一个仓库里。
+**Give Codex the paper, not just the abstract.**
 
-当前版本：Python/skill `0.6.0.dev1`，Chrome 扩展 `0.6.0`。
+Paper Access is a local-first Agent Skill and browser bridge that lets Codex download, validate, and read full-text papers through access you already have. It currently supports SSRN and University of Toronto access to INFORMS papers through LibKey/EBSCO.
 
-这是面向 macOS + Chrome 的实验性开源预览。INFORMS 自动下载适配当前固定为 University of Toronto；其他学校可使用手工 LibKey 路由，尚未提供对应自动适配。SSRN 自动入口当前支持单篇。
+[中文说明](README.zh-CN.md) · [Install](INSTALL.md) · [Privacy](PRIVACY.md) · [Contributing](CONTRIBUTING.md)
 
-## 现在能做什么
+> Preview: macOS + Google Chrome. INFORMS automation is currently configured for University of Toronto. SSRN supports one paper per request.
 
-- 在文献调查、相关性判断和模型比较中自然触发，不要求用户记住 skill 名称。
-- 通过已登录 Chrome 获取单篇 SSRN 正文。
-- 通过 LibKey Nomad、University of Toronto 和 EBSCO 获取 INFORMS 正文。
-- INFORMS 一次提交最多 10 篇，并将单篇失败与其他任务隔离。
-- 将“PDF 已完整下载”和“论文身份已核验”分开报告；默认允许阅读已下载但身份待核对的正文。
-- 对开放来源执行 DOI/BibTeX/RIS/CSV 规划、下载、缓存、恢复和报告。
+## Quick start
 
-本工具使用用户已有的合法访问资格，不保存学校密码、MFA、Chrome cookie，也不绕过登录、人机验证、订阅或下载限制。
+You need macOS, Google Chrome, and a local Codex environment that can run commands. Then paste this into Codex:
 
-## 仓库结构
+> Install Paper Access from https://github.com/LIMYOYO/paper-access-router. Read INSTALL.md and skills/paper-access/references/installation.md first. Set up the CLI, skill, Chrome extension, and native bridge, then verify the installation by downloading one real paper. Ask me only when Chrome permission, institutional login, MFA, or a website verification step needs my action.
 
-| 路径 | 用途 |
+Codex handles the local setup. You will normally need to:
+
+1. Load the unpacked Chrome extension when Codex gives you its folder.
+2. Approve the requested website permissions.
+3. Sign in to University of Toronto/LibKey/EBSCO for INFORMS, or complete SSRN verification if prompted.
+4. Keep that Chrome profile open while Paper Access runs.
+
+The complete human-readable steps are in [INSTALL.md](INSTALL.md). Installing only `SKILL.md` is not enough because downloads also require the CLI, extension, and local native bridge included in this repository.
+
+## Use it naturally
+
+You do not need to name the skill after installation. Ask Codex the research question:
+
+```text
+Find recent M&SOM, Management Science, and SSRN papers on mobile AED deployment.
+When an abstract is not enough to judge relevance, download the paper and read the relevant sections.
+```
+
+You can also give it a DOI or SSRN URL:
+
+```text
+Download and read https://pubsonline.informs.org/doi/10.1287/mnsc.2018.3061.
+Tell me how its model differs from mine, with page-level evidence.
+```
+
+## What it does
+
+- Downloads SSRN papers through the user's normal Chrome session.
+- Routes INFORMS papers through University of Toronto LibKey/EBSCO access.
+- Handles up to 10 INFORMS requests in one batch and isolates individual failures.
+- Separates **download success** from **paper identity validation**. The default advisory mode can read a usable PDF whose identity still needs review; strict mode requires both gates.
+- Reuses existing files and supports open copies when the requested version allows them.
+
+```mermaid
+flowchart LR
+    A[Research question or paper link] --> B[paper-access skill]
+    B --> C[Local CLI and native bridge]
+    C --> D[Your Chrome profile]
+    D --> E[SSRN]
+    D --> F[UofT LibKey / EBSCO]
+    E --> G[Local PDF]
+    F --> G
+    G --> H[Download check]
+    H --> I[Identity check]
+    I --> J[Codex reads the full text]
+```
+
+## Access and privacy
+
+Paper Access uses your existing lawful access. It does not provide subscriptions or bypass login, MFA, CAPTCHA, website verification, or download limits. Those steps stay in your browser and may require your action.
+
+The project has no hosted backend, analytics, advertising, or account system. It does not read or export passwords, cookies, MFA responses, or institutional credentials. PDFs and task data stay on your computer. See [PRIVACY.md](PRIVACY.md).
+
+## Current compatibility
+
+| Component | Supported now |
 | --- | --- |
-| `python/paper_access/` | Python CLI、任务数据库、来源适配、校验和 native bridge |
-| `src/`、`manifest.json` | 可由 Chrome **Load unpacked** 加载的扩展 |
-| `skills/paper-access/` | 与本版本配套的 Codex skill |
-| `profiles/providers/capabilities.json` | 来源能力边界 |
-| `tests/` | Python 与扩展自动化测试 |
-| `docs/` | 设计、访问调查和测试证据 |
+| Operating system | macOS |
+| Browser | Google Chrome |
+| Agent | Codex with local command access |
+| INFORMS | University of Toronto via LibKey/EBSCO |
+| SSRN | Single-paper requests |
+| Batch mode | Up to 10 INFORMS papers per batch |
 
-## 安装
+Support for a route does not guarantee that a particular paper is covered by a subscription or that a website will not ask for verification. Other institutions and Windows/Linux have not yet been validated.
 
-从[简明安装指南](INSTALL.zh-CN.md)开始；详细命令、授权、升级和排错见[Codex 安装执行指南](skills/paper-access/references/installation.md)。可把本仓库链接交给 Codex，再复制：
+## Verification
 
-> 帮我安装这个仓库的 Paper Access。先读 INSTALL.zh-CN.md 和 skills/paper-access/references/installation.md，完成安装并实际下载一篇论文验收；需要 Chrome 权限或本人认证时提示我操作。
+The current preview has been tested on one macOS + Chrome installation with single-paper INFORMS and SSRN downloads, a 10-paper INFORMS batch, and mixed success/failure isolation. Every new installation still performs its own real-paper acceptance test.
 
-## 日常使用
-
-安装完成后无需显式说“使用 paper-access”。下面这些请求会在需要正文时自然调用：
-
-- “调查 Mobile AED 领域，确认哪些论文真的相关。”
-- “这篇文章和我的模型到底哪里相似？”
-- “找最近的 M&SOM、Management Science 和 SSRN 文章，摘要不够时读正文。”
-- “下载 DOI 10.1287/mnsc.2018.3061。”
-
-用户明确只要摘要、书目信息或链接时，不会为了凑数量自动下载论文。
-
-## 开发验证
-
-开发测试另需 Node.js/npm；日常安装与下载不需要。
+Developer checks:
 
 ```sh
 uv sync --dev
 uv run pytest
 npm test
+npm run check
+uv build
 ```
 
-构建 wheel 并核对 skill 版本：
+Real-browser acceptance requires the user's own authorized access. The repository contains no publisher PDFs, credentials, cookies, or session data.
 
-```sh
-uv build --wheel
-uv run paper-access doctor --json
-```
+## Repository layout
 
-真实浏览器验收需要 Chrome、正确的扩展 ID、用户自己的学校访问资格，以及本人完成登录/MFA。自动化测试不替代真实来源验收。四项真实 PDF 回放测试需要使用者自行提供合法获得的固定样本，并通过 `PAPER_ACCESS_ACCEPTANCE_DIR` 指定目录；默认跳过，仓库不附带论文全文。
+| Path | Purpose |
+| --- | --- |
+| `python/paper_access/` | CLI, task store, source adapters, validation, and native bridge |
+| `src/`, `manifest.json` | Chrome extension loaded with **Load unpacked** |
+| `skills/paper-access/` | Agent Skill and Codex installation references |
+| `profiles/providers/` | Declared provider capabilities and limits |
+| `tests/` | Python and extension tests |
+| `docs/` | Design notes, access research, and acceptance evidence |
 
-## 已验证边界
-
-本机 macOS + Chrome 已验证 INFORMS 单篇、十篇并发与失败隔离，以及 SSRN 单篇流程。其他电脑需按安装文档各做一篇真实验收。支持某个入口不表示每篇论文都有订阅，也不表示身份校验必然通过。
-
-许可证：[MIT](LICENSE)。隐私说明：[PRIVACY.md](PRIVACY.md)。
+Paper Access is released under the [MIT License](LICENSE).

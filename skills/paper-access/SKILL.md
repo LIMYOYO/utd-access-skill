@@ -1,6 +1,7 @@
 ---
 name: paper-access
-description: 获取并阅读论文正文，供文献检索后的相关性判断、相似模型比较、已有工作核对、结论解释及文献综述使用。用户无需提供 DOI 或显式调用；当摘要不足以回答研究问题时，自然获取关键候选正文，附论文与 PDF 链接及阅读证据。支持直接下载、已有文件复用、INFORMS 多大 LibKey/EBSCO、SSRN 和开放副本。只需书目信息、只看摘要或不需正文的一般问答不启动下载。
+description: Download, validate, and read full-text academic papers when abstracts are insufficient for literature reviews, relevance checks, model comparisons, prior-work verification, or conclusion analysis. Supports SSRN, University of Toronto INFORMS access through LibKey/EBSCO, open copies, and existing local PDFs. 用户无需提供 DOI 或显式调用；只要摘要、书目信息或链接时不启动下载。
+license: MIT
 metadata:
   version: "0.6.0.dev1"
 ---

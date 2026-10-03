@@ -30,7 +30,8 @@ packages = ["python/paper_access"]
 include = [
     "/python/paper_access", "/skills/paper-access", "/profiles/providers",
     "/src", "/tests", "/pyproject.toml", "/uv.lock",
-    "/manifest.json", "/package.json", "/README.md", "/INSTALL.zh-CN.md",
+    "/manifest.json", "/package.json", "/README.md", "/README.zh-CN.md",
+    "/INSTALL.md", "/INSTALL.zh-CN.md", "/CONTRIBUTING.md", "/SECURITY.md",
     "/PRIVACY.md", "/LICENSE",
 ]
 
