@@ -26,7 +26,7 @@ def main(argv: list[str] | None = None) -> int:
     if actual and actual[0] == "bridge":
         from .bridge.cli import main as bridge_main
         return bridge_main(actual[1:])
-    parser = argparse.ArgumentParser(prog="utd-paper-access")
+    parser = argparse.ArgumentParser(prog="utd-access-skill")
     commands = parser.add_subparsers(dest="command", required=True)
     doctor = commands.add_parser("doctor", help="inspect local configuration; makes no network requests")
     doctor.add_argument("--json", action="store_true")
@@ -77,7 +77,7 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(asyncio.run(gather()), ensure_ascii=False))
             return 0
         except (OSError, ValueError, NetworkFailure) as error:
-            print(f"utd-paper-access: {error}", file=sys.stderr)
+            print(f"utd-access-skill: {error}", file=sys.stderr)
             return 1
     if args.command == "install-skill":
         from .skill import install_skill
@@ -85,7 +85,7 @@ def main(argv: list[str] | None = None) -> int:
             print(install_skill(args.destination))
             return 0
         except (ValueError, OSError) as error:
-            print(f"utd-paper-access: {error}", file=sys.stderr)
+            print(f"utd-access-skill: {error}", file=sys.stderr)
             return 1
     if args.command != "doctor":
         try:
@@ -119,11 +119,11 @@ def main(argv: list[str] | None = None) -> int:
                 print(json.dumps(snapshot, ensure_ascii=False))
             return exit_code
         except (OSError, ValueError, KeyError, InvalidOperation, sqlite3.Error, JobBusy) as exc:
-            print(f"utd-paper-access: {exc}", file=sys.stderr)
+            print(f"utd-access-skill: {exc}", file=sys.stderr)
             return 1
     from .skill import skill_status
     credentials = CredentialResolver()
-    result = {"version": version("utd-paper-access"), "python": platform.python_version(),
+    result = {"version": version("utd-access-skill"), "python": platform.python_version(),
               "data_dir": str(data_directory()),
               "credentials": {provider: "configured" if credentials.get(provider, key) else "missing"
                               for provider, key in credentials.VARIABLES},

@@ -1,19 +1,19 @@
-# Install UTD Paper Access
+# Install UTD Access Skill
 
-UTD Paper Access currently supports **macOS + Google Chrome + Codex with local command access**. Allow 10–20 minutes for the first setup.
+UTD Access Skill currently supports **macOS + Google Chrome + Codex with local command access**. Allow 10–20 minutes for the first setup.
 
 ## 1. Ask Codex to install it
 
 Paste this into Codex:
 
-> Install UTD Paper Access from https://github.com/LIMYOYO/utd-paper-access. Read INSTALL.md and skills/utd-paper-access/references/installation.md first. Check the existing environment, then set up the dependencies, CLI, skill, Chrome extension, and native bridge. Ask me only when Chrome permission, institutional login, MFA, or website verification needs my action. Finally, download one real paper for every route I plan to use and confirm that the PDF is usable before reporting the installation complete.
+> Install UTD Access Skill from https://github.com/LIMYOYO/utd-access-skill. Read INSTALL.md and skills/utd-access-skill/references/installation.md first. Check the existing environment, then set up the dependencies, CLI, skill, Chrome extension, and native bridge. Ask me only when Chrome permission, institutional login, MFA, or website verification needs my action. Finally, download one real paper for every route I plan to use and confirm that the PDF is usable before reporting the installation complete.
 
 Codex will install or locate `uv`, Python 3.11+, and the project dependencies. You do not need Node.js, an EDS API key, a LibKey API key, or a paid API for normal use. The repository can be cloned with Git or downloaded as a ZIP.
 
 ## 2. Complete the browser steps
 
 1. Open Chrome with the profile you normally use to access papers.
-2. Open `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the repository folder that Codex gives you. Pin **UTD Paper Access** to the toolbar.
+2. Open `chrome://extensions`, enable **Developer mode**, choose **Load unpacked**, and select the repository folder that Codex gives you. Pin **UTD Access Skill** to the toolbar.
 3. Approve the requested website permissions. After Codex installs the native bridge, reload the extension. Keep Chrome's download folder aligned with the path configured by Codex and disable **Ask where to save each file before downloading**.
 4. For the validated INFORMS route, install [LibKey Nomad](https://thirdiron.com/downloadnomad/), select **University of Toronto**, and complete the institutional login/MFA when asked. Codex can also use the University of Toronto LibKey route directly. At another institution, configure its LibKey library ID, OpenAthens domain or OpenURL resolver and adapt the EBSCO route to that library's subscription; treat it as unverified until one real paper succeeds. SSRN-only users can skip Nomad and institutional login.
 5. Let Codex run one real download for every route you plan to use. Then start a new Codex conversation so the installed skill is discovered.
@@ -28,4 +28,4 @@ Ask naturally:
 
 You can also provide a DOI or SSRN URL. Download success and identity validation are reported separately. If you need both gates to pass, say: “Use strict validation; analyze only papers whose identity is verified.”
 
-For manual setup, upgrades, troubleshooting, or exact commands, give Codex the [detailed installation guide](skills/utd-paper-access/references/installation.md).
+For manual setup, upgrades, troubleshooting, or exact commands, give Codex the [detailed installation guide](skills/utd-access-skill/references/installation.md).

@@ -1,8 +1,8 @@
-# UTD Paper Access
+# UTD Access Skill
 
 **Give your AI research assistant the full paper, not just the abstract.**
 
-UTD Paper Access is a local-first Agent Skill and Chrome bridge for reading papers in the **UTD Top 24 business-journal set** and related SSRN working papers through access the user already has.
+UTD Access Skill is a local-first Agent Skill and Chrome bridge for reading papers in the **UTD Top 24 business-journal set** and related SSRN working papers through access the user already has.
 
 [中文说明](README.zh-CN.md) · [Install](INSTALL.md) · [Privacy](PRIVACY.md) · [Contributing](CONTRIBUTING.md)
 
@@ -12,11 +12,11 @@ UTD Paper Access is a local-first Agent Skill and Chrome bridge for reading pape
 
 Current requirements: macOS, Google Chrome, and a local Codex environment that can run commands. Paste this into Codex:
 
-> Install UTD Paper Access from https://github.com/LIMYOYO/utd-paper-access. Read INSTALL.md and skills/utd-paper-access/references/installation.md first. Set up the CLI, skill, Chrome extension, and native bridge, then verify each route I need by downloading one real paper. Ask me only when Chrome permission, institutional login, MFA, or website verification needs my action.
+> Install UTD Access Skill from https://github.com/LIMYOYO/utd-access-skill. Read INSTALL.md and skills/utd-access-skill/references/installation.md first. Set up the CLI, skill, Chrome extension, and native bridge, then verify each route I need by downloading one real paper. Ask me only when Chrome permission, institutional login, MFA, or website verification needs my action.
 
 Codex handles the local setup. You normally need to load the unpacked extension, approve its website permissions, authenticate through your own institution when needed, and keep that Chrome profile open.
 
-Installing only `SKILL.md` is insufficient: browser acquisition also uses the CLI, extension, and native bridge in this repository. The preferred command is `utd-paper-access`; the legacy `paper-access` command, data directory, and native bridge identifiers remain available for existing installations.
+Installing only `SKILL.md` is insufficient: browser acquisition also uses the CLI, extension, and native bridge in this repository. The preferred command is `utd-access-skill`; the legacy `utd-paper-access` and `paper-access` commands, data directory, and native bridge identifiers remain available for existing installations.
 
 ## Use it naturally
 
@@ -47,7 +47,7 @@ The official UTD ranking tracks 24 journals. Current support falls into four cle
 
 The seven INFORMS journals are **Information Systems Research, INFORMS Journal on Computing, Marketing Science, Management Science, Operations Research, Manufacturing & Service Operations Management, and Organization Science**.
 
-[See the complete 24-journal grouping and current boundaries](skills/utd-paper-access/references/utd24-coverage.md).
+[See the complete 24-journal grouping and current boundaries](skills/utd-access-skill/references/utd24-coverage.md).
 
 ## Support status and roadmap
 
@@ -62,7 +62,7 @@ The seven INFORMS journals are **Information Systems Research, INFORMS Journal o
 
 ## Research-use boundary
 
-UTD Paper Access is designed to improve an AI research assistant's ability to read papers that the user is already authorized to access for personal research. It is not a paper-distribution service.
+UTD Access Skill is designed to improve an AI research assistant's ability to read papers that the user is already authorized to access for personal research. It is not a paper-distribution service.
 
 Do not use it to bypass subscriptions, login, MFA, CAPTCHA, website verification, rate limits, or license terms; mass-download a collection beyond the user's authorization; or redistribute, republish, or publicly share acquired PDFs. Institutional access and permission to read a paper do not automatically grant redistribution, text-and-data-mining, or AI-processing rights. The user remains responsible for the applicable library and publisher terms.
 
@@ -72,7 +72,7 @@ The project has no hosted backend, analytics, advertising, or account system. It
 
 ```mermaid
 flowchart LR
-    A[Research question or paper link] --> B[utd-paper-access skill]
+    A[Research question or paper link] --> B[utd-access-skill]
     B --> C[Local CLI and native bridge]
     C --> D[User's Chrome profile]
     D --> E[SSRN]
@@ -106,9 +106,9 @@ Real-browser acceptance requires the user's own authorized access. The repositor
 | --- | --- |
 | `python/paper_access/` | CLI, task store, source adapters, validation, and native bridge |
 | `src/`, `manifest.json` | Chrome extension loaded with **Load unpacked** |
-| `skills/utd-paper-access/` | Agent Skill and Codex installation references |
+| `skills/utd-access-skill/` | Agent Skill and Codex installation references |
 | `profiles/providers/` | Declared provider capabilities and limits |
 | `tests/` | Python and extension tests |
 | `docs/` | Design notes, access research, and acceptance evidence |
 
-UTD Paper Access is released under the [MIT License](LICENSE).
+UTD Access Skill is released under the [MIT License](LICENSE).

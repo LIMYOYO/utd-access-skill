@@ -1,8 +1,8 @@
-# UTD Paper Access
+# UTD Access Skill
 
 **让 AI 研究助手读到论文正文，而不只看摘要。**
 
-UTD Paper Access 是一个本地运行的 Agent Skill + Chrome 连接工具，用来获取并阅读 **UTD Top 24 商学院期刊**和相关 SSRN 工作论文。它只使用用户自己已有的访问资格。
+UTD Access Skill 是一个本地运行的 Agent Skill + Chrome 连接工具，用来获取并阅读 **UTD Top 24 商学院期刊**和相关 SSRN 工作论文。它只使用用户自己已有的访问资格。
 
 [English](README.md) · [简明安装](INSTALL.zh-CN.md) · [隐私说明](PRIVACY.md) · [参与开发](CONTRIBUTING.md)
 
@@ -12,11 +12,11 @@ UTD Paper Access 是一个本地运行的 Agent Skill + Chrome 连接工具，�
 
 当前需要 macOS、Google Chrome 和能执行本机命令的 Codex。把下面这段话粘贴给 Codex：
 
-> 帮我安装 https://github.com/LIMYOYO/utd-paper-access 的 UTD Paper Access。先读 INSTALL.zh-CN.md 和 skills/utd-paper-access/references/installation.md，完成 CLI、skill、Chrome 扩展和 native bridge 的配置。对我需要使用的每条路线，最后实际下载一篇论文验收。只有需要 Chrome 权限、学校登录、MFA 或网站验证时再让我操作。
+> 帮我安装 https://github.com/LIMYOYO/utd-access-skill 的 UTD Access Skill。先读 INSTALL.zh-CN.md 和 skills/utd-access-skill/references/installation.md，完成 CLI、skill、Chrome 扩展和 native bridge 的配置。对我需要使用的每条路线，最后实际下载一篇论文验收。只有需要 Chrome 权限、学校登录、MFA 或网站验证时再让我操作。
 
 Codex 会处理本机安装。用户通常只需要加载未打包扩展、批准网站权限、按需完成本人学校认证，并在使用时保持同一个 Chrome profile 开启。
 
-只复制 `SKILL.md` 不能完成下载，因为浏览器路线还需要本仓库的 CLI、扩展和 native bridge。新命令是 `utd-paper-access`；为了兼容已有安装，旧的 `paper-access` 命令、数据目录和 native bridge 标识继续保留。
+只复制 `SKILL.md` 不能完成下载，因为浏览器路线还需要本仓库的 CLI、扩展和 native bridge。新命令是 `utd-access-skill`；为了兼容已有安装，旧的 `utd-paper-access`、`paper-access` 命令、数据目录和 native bridge 标识继续保留。
 
 ## 平常怎么用
 
@@ -42,7 +42,7 @@ UTD 官方排名追踪 24 本期刊。当前支持情况可以直接看成四类
 
 7 本 INFORMS 期刊是：**Information Systems Research、INFORMS Journal on Computing、Marketing Science、Management Science、Operations Research、Manufacturing & Service Operations Management、Organization Science**。
 
-[查看 24 本期刊的完整分组和当前边界](skills/utd-paper-access/references/utd24-coverage.md)。
+[查看 24 本期刊的完整分组和当前边界](skills/utd-access-skill/references/utd24-coverage.md)。
 
 ## 支持状态和后续路线
 
@@ -57,7 +57,7 @@ UTD 官方排名追踪 24 本期刊。当前支持情况可以直接看成四类
 
 ## 研究用途声明
 
-UTD Paper Access 的目的，是让 AI 研究助手能够阅读**用户已经依法有权访问**的论文，帮助个人研究判断、文献综述和模型比较。它不是论文传播或分发工具。
+UTD Access Skill 的目的，是让 AI 研究助手能够阅读**用户已经依法有权访问**的论文，帮助个人研究判断、文献综述和模型比较。它不是论文传播或分发工具。
 
 不得用它绕过订阅、登录、MFA、CAPTCHA、网站验证、速率限制或许可条款；不得超出本人授权批量下载；不得重新分发、公开分享或重新发布取得的 PDF。机构提供的阅读权限，也不自动等于再分发、文本与数据挖掘或 AI 处理权限。使用者需要遵守本校图书馆和出版社的适用条款。
 

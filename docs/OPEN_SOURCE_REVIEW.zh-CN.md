@@ -1,14 +1,14 @@
-# 开源前审查：UTD Paper Access 0.6.1 预览
+# 开源前审查：UTD Access Skill 0.6.2 预览
 
 审查日期：2026-10-03。范围：当前工作树、将要发布的 `main` 历史、Python/Chrome 下载与校验逻辑、安装文档、wheel 和源码发布包。
 
-结论：本轮发现的确定性发布问题已修复，可以按 **macOS + Chrome、UTD24 中 7 本 INFORMS 期刊的多大专用适配、SSRN 单篇的实验性预览** 发布。未发现真实密钥或受限论文全文进入待提交内容。此次结论不等于跨机器真实浏览器验收或长期稳定性证明。
+结论：本轮发现的确定性发布问题已修复，可以按 **macOS + Chrome、UTD24 中 7 本 INFORMS 期刊的多大专用适配、SSRN 单篇的实验性预览** 发布。公开名称现统一为 UTD Access Skill。未发现真实密钥或受限论文全文进入待提交内容。此次结论不等于跨机器真实浏览器验收或长期稳定性证明。
 
 ## 1. 已修复的问题
 
 | 编号 | 原问题与影响 | 修复和证据 |
 | --- | --- | --- |
-| R1，中 | 源码包实际包含 `.serena` 本地配置和 `.planning` 临时工作记录 | `.gitignore` 排除本地配置、规划、凭证文件、PDF、数据库；`pyproject.toml` 的 sdist 使用明确文件清单。0.6.1 重建后源码包 121 个成员、wheel 60 个成员，检查未含这些内容 |
+| R1，中 | 源码包实际包含 `.serena` 本地配置和 `.planning` 临时工作记录 | `.gitignore` 排除本地配置、规划、凭证文件、PDF、数据库；`pyproject.toml` 的 sdist 使用明确文件清单。发布包重建后检查不含这些内容 |
 | R2，中 | 单篇 native host 断开后仍可继续导航或点击下载，CLI 与浏览器状态分离 | `src/native-bridge.js:131` 将断开传给单篇 controller；`src/downloader.js:152` 中断活动任务和权限待决启动，保留完整候选。3 项新回归测试分别覆盖页面检查中断、权限待决、候选保留 |
 | R3，中 | 安装器接受符号链接下载目录，安全 staging 随后拒绝所有候选；doctor 却表现为目录存在 | `python/paper_access/bridge/install.py:27` 在 prepare/install/doctor 检查真实路径，明确拒绝不支持的别名。卸载独立检查登记所有权，下载目录消失时仍可卸载；新增 3 项回归测试 |
 | R4，中 | 升级文档省略撤销旧登记，实际返回 `registration_conflict`；其他学校容易误用固定的多大适配 | `INSTALL.zh-CN.md` 补充新 runtime 准备、旧登记撤销、重新登记和恢复流程；说明 Library 278 固定适配、扩展 ID、真实下载目录和 CLI/浏览器连接各自职责。skill 安装引用同步修正 |

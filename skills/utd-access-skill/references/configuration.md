@@ -1,10 +1,10 @@
-# UTD Paper Access 安装与配置
+# UTD Access Skill 安装与配置
 
 首次安装先读 [安装与升级](installation.md) 和 [首次使用准备](first-use.md)，它们区分本地 bridge、浏览器连接、Nomad 和学校认证；本页补充运行配置。
 
-需要 Python 3.11+。工具和 skill 使用同一份发布包；在仓库根目录运行 `uv tool install .`，再运行 `utd-paper-access install-skill` 安装随包附带的同版 skill，随后新开 Codex 会话加载。旧命令 `paper-access` 继续作为兼容别名。
+需要 Python 3.11+。工具和 skill 使用同一份发布包；在仓库根目录运行 `uv tool install .`，再运行 `utd-access-skill install-skill` 安装随包附带的同版 skill，随后新开 Codex 会话加载。旧命令 `utd-paper-access` 和 `paper-access` 继续作为兼容别名。
 
-本项目尚未上传包索引，不要安装同名 PyPI 包或猜测下载地址。优先从包含 `pyproject.toml`、`python/paper_access`、`src`、`manifest.json` 和 `skills/utd-paper-access` 的完整仓库安装。若只收到 skill 或 wheel，明确报告缺少完整浏览器组件；不能声称已具备 INFORMS/SSRN 自动下载。
+本项目尚未上传包索引，不要安装同名 PyPI 包或猜测下载地址。优先从包含 `pyproject.toml`、`python/paper_access`、`src`、`manifest.json` 和 `skills/utd-access-skill` 的完整仓库安装。若只收到 skill 或 wheel，明确报告缺少完整浏览器组件；不能声称已具备 INFORMS/SSRN 自动下载。
 
 `OPENALEX_API_KEY`、`UNPAYWALL_EMAIL` 可通过当前运行环境配置，值不写入任务/报告。邮箱必须由用户提供，不编造；不要求把 key 发到聊天。这些配置仅用于开放后备，不是多大浏览器主路线的前置条件。
 

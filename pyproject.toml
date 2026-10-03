@@ -3,8 +3,8 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "utd-paper-access"
-version = "0.6.1.dev1"
+name = "utd-access-skill"
+version = "0.6.2.dev1"
 description = "Local full-text access for UTD Top 24 and SSRN research"
 requires-python = ">=3.11"
 license = "MIT"
@@ -21,6 +21,7 @@ dependencies = [
 ]
 
 [project.scripts]
+utd-access-skill = "paper_access.cli:main"
 utd-paper-access = "paper_access.cli:main"
 paper-access = "paper_access.cli:main"
 
@@ -29,7 +30,7 @@ packages = ["python/paper_access"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/python/paper_access", "/skills/utd-paper-access", "/profiles/providers",
+    "/python/paper_access", "/skills/utd-access-skill", "/profiles/providers",
     "/src", "/tests", "/pyproject.toml", "/uv.lock",
     "/manifest.json", "/package.json", "/README.md", "/README.zh-CN.md",
     "/INSTALL.md", "/INSTALL.zh-CN.md", "/CONTRIBUTING.md", "/SECURITY.md",
@@ -37,7 +38,7 @@ include = [
 ]
 
 [tool.hatch.build.targets.wheel.force-include]
-"skills/utd-paper-access" = "paper_access/skill"
+"skills/utd-access-skill" = "paper_access/skill"
 "profiles/providers/capabilities.json" = "paper_access/provider-capabilities.json"
 
 [dependency-groups]

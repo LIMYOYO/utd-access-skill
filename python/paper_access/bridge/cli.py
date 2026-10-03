@@ -12,7 +12,7 @@ from ..config import data_directory
 
 
 def execute(argv,data_dir=None):
-    parser=argparse.ArgumentParser(prog='utd-paper-access bridge');commands=parser.add_subparsers(dest='action',required=True)
+    parser=argparse.ArgumentParser(prog='utd-access-skill bridge');commands=parser.add_subparsers(dest='action',required=True)
     d=commands.add_parser('doctor');d.add_argument('--json',action='store_true');d.add_argument('--runtime',type=Path)
     f=commands.add_parser('fetch');f.add_argument('doi');f.add_argument('--out',type=Path,required=True);f.add_argument('--wait-seconds',type=float,default=180)
     s=commands.add_parser('fetch-ssrn');s.add_argument('identifier');s.add_argument('--out',type=Path,required=True);s.add_argument('--wait-seconds',type=float,default=270)

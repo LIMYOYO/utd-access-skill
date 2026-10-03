@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "UTD Paper Access",
-  "version": "0.6.1",
-  "version_name": "0.6.1 UTD Top 24 and SSRN preview",
+  "name": "UTD Access Skill",
+  "version": "0.6.2",
+  "version_name": "0.6.2 UTD Top 24 and SSRN preview",
   "description": "Help AI read authorized UTD Top 24 and SSRN full text through the user's browser access.",
   "permissions": [
     "activeTab",
@@ -24,6 +24,6 @@
   },
   "action": {
     "default_popup": "src/popup.html",
-    "default_title": "Open UTD Paper Access"
+    "default_title": "Open UTD Access Skill"
   }
 }

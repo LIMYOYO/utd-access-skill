@@ -1,4 +1,4 @@
-# UTD Paper Access 首次使用准备与检查
+# UTD Access Skill 首次使用准备与检查
 
 面向安装者和执行 Codex：用户无需学习终端命令；可由 Codex 检查和安装本地组件，用户只处理需要本人确认的扩展权限及学校认证。不能仅复制 SKILL.md 就宣称可下载。
 
@@ -10,7 +10,7 @@
 | 桌面 Chrome 与同一用户配置 | 本方案已验证环境 | 打开计划用于学校访问的 Chrome 配置，保持运行。连接扩展、Nomad 和学校登录都应在这个配置中；其他配置或应用内浏览器不会自动继承登录。无需照抄别的项目启用远程调试端口；只按当前浏览器工具的正式连接方法配置。 |
 | LibKey Nomad | 推荐，已验证入口使用它 | 从 [Third Iron 官方下载页](https://thirdiron.com/downloadnomad/) 进入对应浏览器的官方扩展商店安装，打开扩展并选择 University of Toronto。别的学校选自己的机构。它负责提供全文入口，不负责给 Codex 浏览器控制权，也不授予订阅权限。缺少时仍可走 LibKey/图书馆入口，不能说必须安装才能访问。 |
 | 学校电子资源资格与登录 | 订阅内容需要 | 用有资格的本人学校账号。在上述 Chrome 中经学校图书馆入口打开资源，按提示本人完成本校账号/MFA（多大为 UTORid）。推荐初次先登录以减少中断，但不要求每次提前登录；未登录时 Codex 可引导至登录页，完成后继续。不能以 Nomad 选中了学校当作已经认证。 |
-| UTD Paper Access CLI、同版 skill、扩展与 native bridge | 浏览器自动获取、校验和任务记录需要 | Codex 执行 `utd-paper-access doctor --json` 与 `utd-paper-access bridge doctor --json`；CLI/skill 版本匹配，且 bridge 返回 installed=true、connected=true 才算本机连接就绪。旧命令 `paper-access` 可继续用于已有安装。缺失时按 installation.md 从完整仓库安装。任何一个组件单独存在都不等于自动下载已就绪。 |
+| UTD Access Skill CLI、同版 skill、扩展与 native bridge | 浏览器自动获取、校验和任务记录需要 | Codex 执行 `utd-access-skill doctor --json` 与 `utd-access-skill bridge doctor --json`；CLI/skill 版本匹配，且 bridge 返回 installed=true、connected=true 才算本机连接就绪。旧命令 `utd-paper-access` 和 `paper-access` 可继续用于已有安装。缺失时按 installation.md 从完整仓库安装。任何一个组件单独存在都不等于自动下载已就绪。 |
 
 本工具运行要求 Python3.11+；使用 uv 安装时需要本机有 uv。由 Codex 检查已有环境，缺失时使用 [uv 官方安装说明](https://docs.astral.sh/uv/getting-started/installation/)；不要编造包索引发布或要求用户自己研究命令。浏览器获取端到端目前只在 macOS＋Chrome 实测；Linux只验证了本地工具安装，Windows浏览器链路未验收。
 
@@ -30,7 +30,7 @@
 - **浏览器显示下载完成但工具找不到文件**：查看该文件的“在 Finder/文件夹中显示”；下载目录可能是外置盘。不要再下载一次来猜位置。
 - **缺 OpenAlex key / Unpaywall 邮箱**：仅影响相应开放后备，不阻塞 LibKey/EBSCO 主路线。普通浏览器获取不需要 EDS API 凭据，也不要求另建个人 EBSCO 账号。
 
-自动 bridge 路线必须加载本仓库的 UTD Paper Access 扩展。LibKey Nomad 负责学校全文入口，Codex 浏览器连接负责通用页面操作，UTD Paper Access 负责请求队列、下载绑定和本地主机通信；三者职责不同，不能互相替代。若 bridge 未安装，Codex 仍可在浏览器中人工执行单篇路线，但必须明确这是降级操作。
+自动 bridge 路线必须加载本仓库的 UTD Access Skill 扩展。LibKey Nomad 负责学校全文入口，Codex 浏览器连接负责通用页面操作，UTD Access Skill 负责请求队列、下载绑定和本地主机通信；三者职责不同，不能互相替代。若 bridge 未安装，Codex 仍可在浏览器中人工执行单篇路线，但必须明确这是降级操作。
 
 ## 官方依据与验证边界
 

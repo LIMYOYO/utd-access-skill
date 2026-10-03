@@ -8,20 +8,20 @@ from pathlib import Path
 
 def bundle() -> Path:
     installed = Path(__file__).parent / "skill"
-    return installed if installed.is_dir() else Path(__file__).resolve().parents[2] / "skills" / "utd-paper-access"
+    return installed if installed.is_dir() else Path(__file__).resolve().parents[2] / "skills" / "utd-access-skill"
 
 
 def skill_status() -> dict:
     path = bundle() / "SKILL.md"
     match = re.search(r'^  version: "([^"]+)"$', path.read_text(), re.M) if path.is_file() else None
     skill_version = match[1] if match else None
-    return {"version": skill_version, "compatible": skill_version == version("utd-paper-access")}
+    return {"version": skill_version, "compatible": skill_version == version("utd-access-skill")}
 
 
 def install_skill(destination: Path | None = None) -> Path:
     if not skill_status()["compatible"]:
         raise ValueError("bundled skill and tool versions differ")
-    destination = (destination or Path(os.environ.get("CODEX_HOME", str(Path.home() / ".codex"))) / "skills" / "utd-paper-access").expanduser().resolve()
+    destination = (destination or Path(os.environ.get("CODEX_HOME", str(Path.home() / ".codex"))) / "skills" / "utd-access-skill").expanduser().resolve()
     source = bundle()
     if destination.exists():
         expected = {p.relative_to(source): p.read_bytes() for p in source.rglob("*") if p.is_file()}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "UTD Access Skill"
+  short_description: "让 Codex 获取并阅读 UTD Top 24 与 SSRN 论文正文"
+  default_prompt: "使用 $utd-access-skill 获取关键论文正文；阅读相关部分判断它与我的研究是否相关，并附论文、PDF 链接和阅读证据。"
+
+policy:
+  allow_implicit_invocation: true

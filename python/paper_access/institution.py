@@ -44,7 +44,7 @@ def build_access_links(paper, institution: dict | None) -> list[dict[str, str]]:
     if profile.get("resolver_base_url"):
         parsed = urlsplit(profile["resolver_base_url"])
         params = dict(parse_qsl(parsed.query))
-        params.update({"url_ver": "Z39.88-2004", "rfr_id": "info:sid/utd-paper-access", "rft.atitle": paper.title})
+        params.update({"url_ver": "Z39.88-2004", "rfr_id": "info:sid/utd-access-skill", "rft.atitle": paper.title})
         if paper.doi:
             params["rft_id"] = "info:doi/" + paper.doi
         links.append({"label": profile.get("institution_name") or "Library resolver",

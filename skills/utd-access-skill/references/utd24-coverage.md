@@ -1,4 +1,4 @@
-# UTD Top 24 覆盖边界
+# UTD24 覆盖边界
 
 UTD 指 University of Texas at Dallas Top 24 期刊集合。University of Toronto 仅是当前已验证的机构访问路线。期刊清单以 [UT Dallas 官方页面](https://jsom.utdallas.edu/the-utd-top-100-business-school-research-rankings/index.php)为准。
 

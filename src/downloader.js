@@ -105,7 +105,7 @@ export function installDownloader(api, {externalBusy=()=>false}={}) {
         const [current] = await api.downloads.search({id:item.id});
         if (current) await check(current,owner);
       } catch (error) { await stop(`下载记录检查失败：${error.message}`,owner); }
-    }).catch(error => console.error('UTD Paper Access storage error:',error.message));
+    }).catch(error => console.error('UTD Access Skill storage error:',error.message));
   });
   api.downloads.onChanged.addListener(delta => {
     void ready.then(async () => {
@@ -115,7 +115,7 @@ export function installDownloader(api, {externalBusy=()=>false}={}) {
         const [item] = await api.downloads.search({id:delta.id});
         if (item) await check(item,owner);
       } catch (error) { await stop(`下载状态检查失败：${error.message}`,owner); }
-    }).catch(error => console.error('UTD Paper Access storage error:',error.message));
+    }).catch(error => console.error('UTD Access Skill storage error:',error.message));
   });
   api.alarms.onAlarm.addListener(alarm => {
     if (alarm.name === ALARM) void ready.then(() => active(task) && stop('任务超时。未确认下载完成，请检查原页面和下载记录；不要盲目重试。'));

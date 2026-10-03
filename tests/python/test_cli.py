@@ -20,9 +20,11 @@ def test_doctor_json_does_not_disclose_credentials_or_create_state(tmp_path, mon
 
 
 def test_module_and_installed_entrypoint_work():
+    assert shutil.which("utd-access-skill") is not None
     assert shutil.which("utd-paper-access") is not None
     for argv in (
         [sys.executable, "-m", "paper_access", "doctor", "--json"],
+        ["utd-access-skill", "doctor", "--json"],
         ["utd-paper-access", "doctor", "--json"],
         ["paper-access", "doctor", "--json"],
     ):

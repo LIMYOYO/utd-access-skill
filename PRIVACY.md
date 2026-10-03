@@ -1,13 +1,13 @@
-# UTD Paper Access Privacy
+# UTD Access Skill Privacy
 
-UTD Paper Access has no project-operated backend, analytics, advertising, or account system. Browser and PDF processing occurs on the user's computer.
+UTD Access Skill has no project-operated backend, analytics, advertising, or account system. Browser and PDF processing occurs on the user's computer.
 
 The Chrome extension can:
 
 - read DOI, title, author and normal download-link metadata on sites for which the user grants access;
 - open background tabs and initiate user-authorized downloads;
 - observe Chrome download records needed to bind a completed file to its request;
-- exchange request state and local file paths with the registered UTD Paper Access native host.
+- exchange request state and local file paths with the registered UTD Access Skill native host.
 
 The local CLI and native host can copy, hash, parse, validate and extract text from downloaded papers, and store task state and reports in the user's local Paper Access data and output directories. The legacy `paper-access` storage identifier is retained so existing installations keep their data.
 

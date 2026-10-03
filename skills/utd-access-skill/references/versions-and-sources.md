@@ -1,4 +1,4 @@
-# UTD Paper Access 的版本与来源
+# UTD Access Skill 的版本与来源
 
 - best-available 优先正式版，然后接受稿、工作论文，最后未知版本；published-only 仅接受有版本证据的正式版。
 - DOI/SSRN/NBER 可经 Crossref 元数据与 OpenAlex、Unpaywall 已发现的开放链接获取。SSRN 入口不等于自动下载成功，遇到封锁转浏览器。
