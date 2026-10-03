@@ -1,6 +1,6 @@
-# Contributing
+# Contributing to UTD Paper Access
 
-Paper Access is an experimental local research tool. Focus contributions on reliable, lawful acquisition through access the user already has.
+UTD Paper Access is an experimental local research tool. Focus contributions on reliable, lawful acquisition through access the user already has.
 
 ## Before opening a change
 
@@ -19,7 +19,7 @@ npm run check
 uv build
 ```
 
-Validate `skills/paper-access` with the Agent Skills `quick_validate.py` helper available in your Codex skill-creator installation.
+Validate `skills/utd-paper-access` with the Agent Skills `quick_validate.py` helper available in your Codex skill-creator installation.
 
 Real-source tests must use your own authorized access and must not add the resulting PDFs or session data to the repository. Include a concise description of what was verified and what remains untested.
 

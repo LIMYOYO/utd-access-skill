@@ -1,6 +1,6 @@
-# Paper Access Router：面向 OM / OR / Economics 的公开 skill 规划
+# UTD Paper Access：历史设计与访问调查
 
-日期：2026-09-26（America/Toronto；查证跨 9 月 25–26 日）。状态：历史设计与访问调查。0.6.0 实现已进入仓库；当前安装和能力边界以根目录 [README](../README.md)、[安装文档](../INSTALL.zh-CN.md) 和 `skills/paper-access/` 为准。
+日期：2026-09-26（America/Toronto；查证跨 9 月 25–26 日）。状态：历史设计与访问调查。本文保留旧名称和旧命令作为当时设计记录；当前安装和能力边界以根目录 [README](../README.md)、[安装文档](../INSTALL.zh-CN.md) 和 `skills/utd-paper-access/` 为准。
 
 本文保留早期范围、来源调查和阶段设计，其中“尚未实现”“拟定接口”等状态描述只代表 2026-09-26 当时，不再作为当前安装或发布说明。
 

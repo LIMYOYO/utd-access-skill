@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Paper Access Router",
-  "version": "0.6.0",
-  "version_name": "0.6.0 download and identity gates",
-  "description": "Route article DOIs to legal full text through LibKey and University of Toronto library access.",
+  "name": "UTD Paper Access",
+  "version": "0.6.1",
+  "version_name": "0.6.1 UTD Top 24 and SSRN preview",
+  "description": "Help AI read authorized UTD Top 24 and SSRN full text through the user's browser access.",
   "permissions": [
     "activeTab",
     "contextMenus",
@@ -24,6 +24,6 @@
   },
   "action": {
     "default_popup": "src/popup.html",
-    "default_title": "Open paper legally"
+    "default_title": "Open UTD Paper Access"
   }
 }

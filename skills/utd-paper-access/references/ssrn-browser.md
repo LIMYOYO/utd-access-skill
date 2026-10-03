@@ -1,11 +1,11 @@
-# SSRN 浏览器单篇适配（扩展/核验器0.6.0）
+# SSRN 浏览器单篇适配（扩展/核验器0.6.1）
 
 本适配复用已登录 Chrome 的正常 SSRN 页面下载入口，先确认 Chrome 文件下载 complete，再安全暂存并执行已有正文/身份核验。Cookie 留在浏览器，不导出到 HTTP 客户端。本机2026-09-30已从CLI提交4189586，真实SSRΝ下载及身份/正文校验通过（8页，34.424秒，无人工下载点击）。另外5203708下载12页但严格身份校验失败；4558521页面明确审核中或移除，人工检查后取消等待。当前3篇样本2篇下载、1篇验证成功，不承诺SSRΝ普遍支持或批量稳定。自动化测试和模拟native host成功不能替代其他机器/论文的真实验收。
 
-首次需要扩展0.6.0和本地运行环境0.6.0.dev1。由 Codex 准备和安装，用户在 Chrome Reload 扩展，然后打开扩展点击「启用 SSRN 网站权限」，只申请 https://papers.ssrn.com/*（并复用现有下载权限）。只用现有授权 Chrome，不要求 OpenAlex、Unpaywall 或 EDS API 密钥。人工处理登录和验证码。
+首次需要扩展0.6.1和本地运行环境0.6.1.dev1。由 Codex 准备和安装，用户在 Chrome Reload 扩展，然后打开扩展点击「启用 SSRN 网站权限」，只申请 https://papers.ssrn.com/*（并复用现有下载权限）。只用现有授权 Chrome，不要求 OpenAlex、Unpaywall 或 EDS API 密钥。人工处理登录和验证码。
 
-先运行 `paper-access bridge doctor --json`，以返回的 runtime 为准；若CLI不在PATH，Codex通过该runtime的 `venv/bin/python -m paper_access` 调用。
-提交 `paper-access bridge fetch-ssrn <论文编号、10.2139/ssrn.DOI 或 SSRN 论文链接> --out <输出目录>`。支持 --validation-policy advisory|strict，默认advisory；仅支持单篇 reading，不能与 INFORMS 请求同时运行。默认等待270秒，浏览器阶段240秒。CLI超时查询原request_id，不重复提交。
+先运行 `utd-paper-access bridge doctor --json`，以返回的 runtime 为准；若CLI不在PATH，Codex通过该runtime的 `venv/bin/python -m paper_access` 调用。
+提交 `utd-paper-access bridge fetch-ssrn <论文编号、10.2139/ssrn.DOI 或 SSRN 论文链接> --out <输出目录>`。支持 --validation-policy advisory|strict，默认advisory；仅支持单篇 reading，不能与 INFORMS 请求同时运行。默认等待270秒，浏览器阶段240秒。CLI超时查询原request_id，不重复提交。
 
 扩展开一个 inactive 论文标签页，核对页面 citation_doi、题名、作者与实际正常下载链接。链接文件名的 SSRN_ID 可能是修订编号，必须使用 abstractid 判断论文归属。相同下载按钮上下重复不算两个入口；多个不同入口则暂停。只点击一次，按下载URL和时间窗口绑定确切 Chrome download ID；不接受其他 SSRN PDF 或既有旧下载。
 
@@ -17,4 +17,4 @@
 
 2026-09-30 十份既有 SSRN PDF 本地复核（没有重新下载）：0.5.1 核验器9篇标题作者通过，1篇作者匿名已交付待核对；原始0.5.0测试10/10下载、3/10身份通过记录保留。识别限前三页，正文边界优先；仅去除明确期刊/工作论文固定前缀、修复名字内拆开的重音，不从参考文献找匹配，不让封面覆盖错误正文。版本仍为 unknown。
 
-0.6.0 默认 advisory：downloaded_fulltext 也是成功下载和可分析终态；不再将身份未通过一律视为任务失败。strict 下载仍保留，但身份未通过时阻止后续分析。以 [下载与校验策略](delivery-policy.md) 为准。
+0.6.1 默认 advisory：downloaded_fulltext 也是成功下载和可分析终态；不再将身份未通过一律视为任务失败。strict 下载仍保留，但身份未通过时阻止后续分析。以 [下载与校验策略](delivery-policy.md) 为准。

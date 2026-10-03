@@ -1,4 +1,4 @@
-# 文献研究中的正文交接
+# UTD Top 24 与 SSRN 文献研究中的正文交接
 
 ## 根据任务选择动作
 
@@ -22,13 +22,13 @@
 
 ## 与 research-radar 的交接
 
-有已配置项目时，雷达负责发现、去重、排序与项目比较；paper-access负责获取实际文件并返回download_status、identity_status、analysis_allowed、文件/文本路径、来源和版本。继续原研究问题，不要求用户重新指定已明确的候选。
+有已配置项目时，雷达负责发现、去重、排序与项目比较；utd-paper-access 负责获取实际文件并返回download_status、identity_status、analysis_allowed、文件/文本路径、来源和版本。继续原研究问题，不要求用户重新指定已明确的候选。
 
 在雷达的access.acquire不可取得正文或返回authentication-required时，可以用本skill走授权浏览器获取，成功后用雷达已有access import/text命令导入归档。不通过题名或年份相同就假定同一论文。雷达默认每次深化一篇的范围保持；用户明确请求多篇时按所选范围处理。
 
 雷达程序台账的codex_eligible、身份、权限和证据字段由其现有规则决定。本skill的analysis_allowed不能改写台账。身份通过且雷达接受导入/文本导出时继续distill_context、distill import和brief。advisory正文可读但台账拒绝时，可在当前回答中给带待核对标记的内容判断、文件链接和阅读范围；不调用强制确认、不宣称已生成已验证深读卡、不篡改eligibility。显式strict任务不走这个内容分析后备。
 
-没有research-radar或没有项目配置时，直接进行常规文献检索与paper-access阅读，不为了判断一篇论文强制初始化雷达。若用户明确要求运行雷达，则尊重雷达本身的就绪与初始化规则。
+没有research-radar或没有项目配置时，直接进行常规文献检索与 utd-paper-access 阅读，不为了判断一篇论文强制初始化雷达。若用户明确要求运行雷达，则尊重雷达本身的就绪与初始化规则。
 
 ## 阅读状态与回答
 

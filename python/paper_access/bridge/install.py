@@ -66,7 +66,7 @@ def _prepared(runtime):
 def install_prepared(prepared_dir,target=None):
     runtime,config=_prepared(prepared_dir);target=Path(target) if target else registration_path()
     validate_download_root(config['download_root'])
-    manifest={'name':HOST,'description':'Paper Access local PDF download and validation bridge','path':str(runtime/'host'),'type':'stdio','allowed_origins':['chrome-extension://'+config['extension_id']+'/']}
+    manifest={'name':HOST,'description':'UTD Paper Access local PDF download and validation bridge','path':str(runtime/'host'),'type':'stdio','allowed_origins':['chrome-extension://'+config['extension_id']+'/']}
     if target.is_symlink():raise ValueError('unsafe_registration')
     if target.exists() and json.loads(target.read_text())!=manifest:raise ValueError('registration_conflict')
     target.parent.mkdir(parents=True,exist_ok=True)

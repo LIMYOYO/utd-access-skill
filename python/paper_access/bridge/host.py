@@ -123,6 +123,6 @@ def main(argv=None):
     queue=BridgeQueue(Path(config['data_dir'])/'bridge.sqlite3')
     try:return serve(sys.stdin.buffer,sys.stdout.buffer,args[1],config,queue)
     except Exception as error:
-        print('paper-access bridge: '+type(error).__name__+': '+str(error),file=sys.stderr);return 1
+        print('utd-paper-access bridge: '+type(error).__name__+': '+str(error),file=sys.stderr);return 1
 
 if __name__=='__main__':raise SystemExit(main())

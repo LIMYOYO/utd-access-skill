@@ -1,9 +1,9 @@
 {
-  "name": "paper-access-router",
-  "version": "0.6.0",
+  "name": "utd-paper-access",
+  "version": "0.6.1",
   "private": true,
   "type": "module",
-  "description": "Browser extension for the Paper Access local full-text acquisition workflow.",
+  "description": "Browser extension for the UTD Paper Access full-text workflow.",
   "scripts": {
     "check": "find src -name '*.js' -print0 | xargs -0 -n1 node --check",
     "test": "node --test"

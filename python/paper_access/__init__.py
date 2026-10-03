@@ -1,1 +1,1 @@
-"""Local paper-access tools."""
+"""Local tools for UTD Paper Access."""

@@ -12,7 +12,7 @@ These checks deliberately use individual, user-initiated article requests. Do no
 4. If Duo offers **Yes, this is my device**, select it only on a personal device.
 5. Confirm that EBSCO Business Source Premier opens.
 
-Expected: OpenAthens remains usable for up to eight hours in the same browser session. The extension never receives the password, Duo response or cookies; when site permission is granted, it can read the article metadata and normal download controls required by the Paper Access workflow.
+Expected: OpenAthens remains usable for up to eight hours in the same browser session. The extension never receives the password, Duo response or cookies; when site permission is granted, it can read the article metadata and normal download controls required by the UTD Paper Access workflow.
 
 ## 2. Current subscription-only INFORMS article
 

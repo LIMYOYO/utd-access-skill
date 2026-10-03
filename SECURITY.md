@@ -1,4 +1,4 @@
-# Security Policy
+# UTD Paper Access Security Policy
 
 ## Reporting a vulnerability
 

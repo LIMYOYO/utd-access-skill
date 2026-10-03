@@ -143,7 +143,7 @@ class HttpClient:
         except (httpx.InvalidURL, ValueError):
             raise UnsafeURL("invalid URL") from None
         request_headers = httpx.Headers(headers or {})
-        request_headers.setdefault("User-Agent", "paper-access/0.2 (local research tool)")
+        request_headers.setdefault("User-Agent", "utd-paper-access/0.6.1 (local research tool)")
         if destination is not None:
             request_headers["Accept-Encoding"] = "identity"
         resume_etag = None
