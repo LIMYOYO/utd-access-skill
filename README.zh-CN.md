@@ -31,14 +31,18 @@ Codex 会处理本机安装。用户通常只需要加载未打包扩展、批�
 
 ## UTD Top 24 覆盖情况
 
-UTD 官方排名目前追踪 24 本期刊。本项目**还没有为全部 24 本期刊提供出版社自动下载路线**。
+UTD 官方排名追踪 24 本期刊。当前支持情况可以直接看成四类：
 
-| 覆盖状态 | 期刊或来源 | 当前能力 |
+| 论文范围 | 现在能做什么 | 关键限制 |
 | --- | --- | --- |
-| 有专用浏览器自动路线 | **Information Systems Research、INFORMS Journal on Computing、Marketing Science、Management Science、Operations Research、Manufacturing & Service Operations Management、Organization Science** | INFORMS DOI → LibKey → 多大/EBSCO → 本地 PDF。INFORMS 每批最多 10 篇；每篇单独报告订阅、下载和身份校验结果。 |
-| 支持开放副本和本地文件 | 全部 24 本期刊 | 可复用用户已有的合法 PDF；版本要求允许时，可尝试稳定的开放仓库副本，但不保证一定存在。 |
-| 工作论文路线 | SSRN；SSRN 本身不属于 UTD Top 24 期刊 | 支持 Chrome 单篇下载，下载成功和论文身份校验分开报告。 |
-| 暂无出版社专用自动路线 | **The Accounting Review、Journal of Accounting and Economics、Journal of Accounting Research、Journal of Finance、Journal of Financial Economics、Review of Financial Studies、MIS Quarterly、Journal of Consumer Research、Journal of Marketing、Journal of Marketing Research、Journal of Operations Management、Production and Operations Management、Academy of Management Journal、Academy of Management Review、Administrative Science Quarterly、Journal of International Business Studies、Strategic Management Journal** | 目前只能使用开放副本、已有本地 PDF，或由用户在浏览器完成合法下载后导入。 |
+| **UTD24 中的 7 本 INFORMS 期刊** | 自动下载：DOI → LibKey → 多大/EBSCO → 本地 PDF | 每批 1–10 篇；目前只验证过多大路线；每篇独立报告结果 |
+| **UTD24 中的其他 17 本期刊** | 查找开放副本、读取已有 PDF，或导入用户在浏览器下载的文件 | 暂无出版社专用自动下载路线 |
+| **SSRN 工作论文** | 通过 Chrome 自动下载单篇，并分别报告下载与身份校验 | 暂不支持批量；SSRN 不属于 UTD Top 24 |
+| **用户已有的合法 PDF** | 直接导入、校验并交给 AI 阅读 | 适用于任何期刊；文件需要由用户合法取得 |
+
+7 本 INFORMS 期刊是：**Information Systems Research、INFORMS Journal on Computing、Marketing Science、Management Science、Operations Research、Manufacturing & Service Operations Management、Organization Science**。
+
+[查看 24 本期刊的完整分组和当前边界](skills/utd-paper-access/references/utd24-coverage.md)。
 
 ## 支持状态和后续路线
 

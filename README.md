@@ -36,14 +36,18 @@ Compare its model with mine and give page-level evidence.
 
 ## UTD Top 24 coverage
 
-The official UTD ranking currently tracks 24 journals. This project does **not** yet provide a dedicated automated publisher route for all 24.
+The official UTD ranking tracks 24 journals. Current support falls into four clear groups:
 
-| Coverage | Journals or sources | Current behavior |
+| Paper scope | What works now | Main limit |
 | --- | --- | --- |
-| Dedicated browser route | **Information Systems Research; INFORMS Journal on Computing; Marketing Science; Management Science; Operations Research; Manufacturing & Service Operations Management; Organization Science** | INFORMS DOI → LibKey → University of Toronto/EBSCO → local PDF. Up to 10 papers per INFORMS batch; subscription and identity results remain per paper. |
-| Open-copy and local-file support | All 24 journals | Can reuse an existing authorized PDF or try a stable open repository copy when the requested version permits it. Availability is not guaranteed. |
-| Working-paper route | SSRN, which is not itself a UTD Top 24 journal | Single-paper Chrome route with separate download and identity checks. |
-| No dedicated publisher automation yet | **The Accounting Review; Journal of Accounting and Economics; Journal of Accounting Research; Journal of Finance; Journal of Financial Economics; Review of Financial Studies; MIS Quarterly; Journal of Consumer Research; Journal of Marketing; Journal of Marketing Research; Journal of Operations Management; Production and Operations Management; Academy of Management Journal; Academy of Management Review; Administrative Science Quarterly; Journal of International Business Studies; Strategic Management Journal** | Currently limited to open copies, an existing local PDF, or a manually completed authorized browser download. |
+| **7 INFORMS journals in UTD24** | Automated download: DOI → LibKey → University of Toronto/EBSCO → local PDF | Batches of 1–10; only the University of Toronto route is validated; results remain per paper |
+| **Other 17 UTD24 journals** | Find an open copy, read an existing PDF, or import a file downloaded by the user | No dedicated publisher automation yet |
+| **SSRN working papers** | Automated single-paper download through Chrome, with separate download and identity results | No batch support yet; SSRN is not a UTD Top 24 journal |
+| **Any lawfully obtained local PDF** | Import, validate, and make it available for AI reading | The user must already be authorized to possess the file |
+
+The seven INFORMS journals are **Information Systems Research, INFORMS Journal on Computing, Marketing Science, Management Science, Operations Research, Manufacturing & Service Operations Management, and Organization Science**.
+
+[See the complete 24-journal grouping and current boundaries](skills/utd-paper-access/references/utd24-coverage.md).
 
 ## Support status and roadmap
 
